@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Clínica Dental Boadilla DC · Ortodoncia y odontopediatría en Boadilla del Monte</title>
+<meta name="description" content="Clínica dental familiar en Boadilla del Monte. Especialistas en ortodoncia y odontopediatría, con endodoncia, periodoncia, implantología, estética y prótesis dental. Pide cita por WhatsApp.">
+<link rel="icon" href="https://boadilladc.com/wp-content/uploads/2025/10/BDC_LogoFinal_doscolores.pdf-removebg-preview.png">
+<link rel="preload" href="fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --ink:#1D3650;        /* navy de los uniformes, profundizado del azul del logo */
+  --steel:#789CB4;      /* azul del logo */
+  --aqua:#9CD8E4;       /* aguamarina del logo */
+  --aqua-soft:#DDF1F5;
+  --mist:#F2F7F9;       /* fondo frío, clínico */
+  --oak:#C49A6C;        /* listones de madera de la clínica */
+  --white:#FFFFFF;
+  --text:#22313F;
+  --muted:#566675;
+  --wa:#1FAF55;
+  --radius-arch:999px 999px 24px 24px;
+  --max:1180px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--mist);color:var(--text);font:400 1.0625rem/1.65 "Atkinson Hyperlegible",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"League Spartan",system-ui,sans-serif;color:var(--ink);margin:0;letter-spacing:-.02em;line-height:1.02}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+:focus-visible{outline:3px solid var(--steel);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:200}
+.skip:focus{left:8px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;font:600 1rem/1 "League Spartan",sans-serif;padding:1em 1.4em .9em;border-radius:999px;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn svg{width:1.2em;height:1.2em;flex:none;margin-top:-.15em}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:#178f45}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{background:var(--aqua)}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(242,247,249,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(29,54,80,.08)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.brand img{height:54px;width:auto}
+nav.main{display:flex;gap:28px;font:500 1rem "League Spartan",sans-serif}
+nav.main a{text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{border-color:var(--aqua)}
+.bar-cta{display:flex;align-items:center;gap:14px}
+.bar-tel{font:600 1rem "League Spartan",sans-serif;text-decoration:none;color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;padding:8px;color:var(--ink);cursor:pointer}
+.menu-btn svg{width:28px;height:28px}
+
+/* Hero */
+.hero{padding:clamp(32px,6vw,72px) 0 clamp(48px,7vw,96px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:700;line-height:.95}
+.hero h1 .sub{display:block;font-weight:400;color:var(--steel);font-size:.52em;letter-spacing:-.01em;margin-top:.35em;line-height:1.1}
+.hero .lead{margin-top:26px;max-width:34em;font-size:1.15rem;color:var(--muted)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .where{display:flex;gap:10px;align-items:flex-start;margin-top:34px;color:var(--muted);font-size:.95rem;max-width:30em}
+.hero .where svg{width:20px;height:20px;flex:none;color:var(--steel);margin-top:2px}
+.arch{position:relative;border-radius:var(--radius-arch);overflow:hidden;aspect-ratio:4/5;background:var(--aqua-soft)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.hero-figure{position:relative}
+.hero-figure::before{content:"";position:absolute;inset:-18px -18px auto auto;width:62%;aspect-ratio:1;border-radius:50%;background:var(--aqua);z-index:-1}
+.hero-figure figcaption{position:absolute;left:-20px;bottom:28px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px -12px rgba(29,54,80,.35);font-size:.92rem;max-width:250px;line-height:1.35}
+.hero-figure figcaption strong{display:block;font:700 1.05rem "League Spartan",sans-serif;color:var(--ink)}
+
+/* hero load sequence (single orchestrated moment) */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .sub,.hero .lead,.hero .actions,.hero .where{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .sub{animation-delay:.38s}.hero .lead{animation-delay:.48s}.hero .actions{animation-delay:.58s}.hero .where{animation-delay:.68s}
+  .hero .arch{animation:archin 1.1s cubic-bezier(.2,.7,.2,1) both .1s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes archin{from{clip-path:inset(100% 0 0 0 round 999px 999px 24px 24px)}to{clip-path:inset(0 0 0 0 round 999px 999px 24px 24px)}}
+}
+
+/* Section scaffolding */
+section{padding:clamp(64px,9vw,120px) 0}
+.sec-head{max-width:46rem;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:700}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.1rem;max-width:38em}
+
+/* Etapas — signature */
+.etapas{background:var(--ink);color:#E6EEF4}
+.etapas h2{color:#fff}
+.etapas .sec-head p{color:#B9CAD8}
+.stage-rail{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:40px}
+.stage-rail::before{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:2px;background:rgba(156,216,228,.3)}
+.stage-tab{position:relative;background:none;border:0;color:#B9CAD8;font:500 1.1rem/1.2 "League Spartan",sans-serif;cursor:pointer;padding:0 8px 6px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.stage-tab .dot{width:56px;height:56px;border-radius:50%;border:2px solid rgba(156,216,228,.45);background:var(--ink);display:grid;place-items:center;transition:background .25s,border-color .25s,transform .25s}
+.stage-tab .dot svg{width:26px;height:26px;color:var(--aqua)}
+.stage-tab[aria-selected="true"]{color:#fff}
+.stage-tab[aria-selected="true"] .dot{background:var(--aqua);border-color:var(--aqua);transform:scale(1.08)}
+.stage-tab[aria-selected="true"] .dot svg{color:var(--ink)}
+.stage-tab:hover .dot{border-color:var(--aqua)}
+.stage-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,64px);align-items:center}
+.stage-panel[hidden]{display:none}
+.stage-panel .arch{aspect-ratio:1/1;border-radius:var(--radius-arch)}
+.stage-panel h3{color:#fff;font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:600}
+.stage-panel > div > p{margin-top:14px;color:#C9D7E2;max-width:34em}
+.stage-panel ul{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid rgba(156,216,228,.22)}
+.stage-panel li{border-bottom:1px solid rgba(156,216,228,.22)}
+.stage-panel li a{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:16px 0;text-decoration:none}
+.stage-panel li strong{font:600 1.15rem "League Spartan",sans-serif;color:#fff}
+.stage-panel li span{grid-column:1;color:#B9CAD8;font-size:.97rem}
+.stage-panel li a::after{content:"";grid-row:1/3;grid-column:2;align-self:center;width:10px;height:10px;border-right:2px solid var(--aqua);border-top:2px solid var(--aqua);transform:rotate(45deg);transition:transform .2s}
+.stage-panel li a:hover strong{color:var(--aqua)}
+.stage-panel li a:hover::after{transform:translateX(4px) rotate(45deg)}
+.stage-panel blockquote{margin:24px 0 0;padding-left:16px;border-left:3px solid var(--oak);color:#E6EEF4;font-style:italic}
+.stage-panel blockquote cite{display:block;font-style:normal;color:#B9CAD8;font-size:.9rem;margin-top:4px}
+@media (prefers-reduced-motion:no-preference){.stage-panel:not([hidden]){animation:fade .45s ease both}@keyframes fade{from{opacity:0}to{opacity:1}}}
+
+/* Tratamientos index */
+.treat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,5vw,72px);border-top:2px solid var(--ink)}
+.treat{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(29,54,80,.15);text-decoration:none}
+.treat img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.treat h3{font-size:1.4rem;font-weight:600}
+.treat p{color:var(--muted);font-size:.95rem;margin-top:4px;line-height:1.45}
+.treat .go{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(29,54,80,.25);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.treat .go svg{width:16px;height:16px}
+.treat:hover .go{background:var(--aqua);border-color:var(--aqua)}
+.treat:hover h3{color:#2f5f86}
+.treat.feature h3::after{content:"Especialidad";font:500 .78rem/1 "Atkinson Hyperlegible",sans-serif;letter-spacing:0;color:var(--ink);background:var(--aqua-soft);border-radius:999px;padding:5px 9px 4px;margin-left:10px;vertical-align:middle}
+
+/* Clínica / diferenciales */
+.clinic{background:#fff}
+.clinic-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+.clinic .photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.clinic .photos img{width:100%;height:100%;object-fit:cover;border-radius:22px}
+.clinic .photos .tall{grid-row:span 2;border-radius:var(--radius-arch)}
+.clinic .photos .p1{aspect-ratio:1}
+.clinic .photos .p2{aspect-ratio:1}
+.clinic h2{font-size:clamp(2rem,4vw,3rem);font-weight:700}
+.clinic .body p{margin-top:18px;color:var(--muted);max-width:36em}
+.pillars{list-style:none;padding:0;margin:34px 0 0;display:grid;gap:0}
+.pillars li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid rgba(29,54,80,.12)}
+.pillars li:last-child{border-bottom:1px solid rgba(29,54,80,.12)}
+.pillars .ic{width:44px;height:44px;border-radius:50%;background:var(--aqua-soft);display:grid;place-items:center;color:var(--ink)}
+.pillars .ic svg{width:22px;height:22px}
+.pillars strong{font:600 1.15rem "League Spartan",sans-serif;color:var(--ink);display:block}
+.pillars span{color:var(--muted);font-size:.97rem}
+
+/* Equipo */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,36px) clamp(16px,2.5vw,28px)}
+.member .arch{aspect-ratio:4/5;background:var(--aqua-soft)}
+.member .arch img{object-position:center 20%}
+.member h3{font-size:1.35rem;font-weight:600;margin-top:16px}
+.member p{color:var(--muted);font-size:.95rem;margin-top:4px;line-height:1.45}
+.team-photo{margin-top:clamp(36px,5vw,56px);border-radius:28px;overflow:hidden;position:relative}
+.team-photo img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 35%}
+
+/* Opiniones */
+.reviews{background:var(--aqua-soft)}
+.rev-top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.rev-feature{font:500 clamp(1.35rem,2.4vw,1.9rem)/1.3 "League Spartan",sans-serif;color:var(--ink);letter-spacing:-.01em;margin:0}
+.rev-feature footer{font:400 1rem "Atkinson Hyperlegible",sans-serif;color:var(--muted);margin-top:18px;display:flex;align-items:center;gap:10px}
+.stars{display:inline-flex;gap:2px;color:#E8A317}
+.stars svg{width:16px;height:16px}
+.rev-cols{columns:3 300px;column-gap:20px}
+.rev{break-inside:avoid;background:#fff;border-radius:20px;padding:22px 22px 20px;margin:0 0 20px}
+.rev p{font-size:1rem}
+.rev footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;font-size:.92rem;color:var(--muted)}
+.rev footer b{color:var(--ink);font-weight:700}
+.g-note{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.92rem}
+.g-note svg{width:18px;height:18px}
+.g-score{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.g-score b{font:700 clamp(3.2rem,6vw,4.6rem)/.9 "League Spartan",sans-serif;color:var(--ink);letter-spacing:-.03em}
+.g-score > span{display:grid;gap:6px}
+.g-score .stars svg{width:20px;height:20px}
+
+/* Contacto */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:stretch}
+.contact h2{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:700}
+.contact .intro{margin-top:16px;color:var(--muted);max-width:32em}
+.c-list{list-style:none;padding:0;margin:30px 0 0}
+.c-list li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 0;border-top:1px solid rgba(29,54,80,.12)}
+.c-list li:last-child{border-bottom:1px solid rgba(29,54,80,.12)}
+.c-list svg{width:22px;height:22px;color:var(--steel);margin-top:3px}
+.c-list small{display:block;color:var(--muted);font-size:.85rem}
+.c-list a{font:600 1.15rem "League Spartan",sans-serif;color:var(--ink);text-decoration:none}
+.c-list a:hover{text-decoration:underline;text-decoration-color:var(--aqua);text-decoration-thickness:3px;text-underline-offset:4px}
+.c-list address{font-style:normal}
+.contact .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.map{border-radius:28px;overflow:hidden;min-height:420px;background:var(--aqua-soft)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+
+/* Final CTA */
+.final{padding:0 0 clamp(64px,9vw,120px)}
+.final-box{background:var(--ink);border-radius:32px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;position:relative;overflow:hidden}
+.final-box::after{content:"";position:absolute;right:-80px;bottom:-140px;width:340px;height:340px;border-radius:50%;border:56px solid rgba(156,216,228,.14)}
+.final-box h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.8rem);font-weight:700;max-width:16em}
+.final-box p{color:#B9CAD8;margin-top:12px;max-width:34em}
+.final-box .actions{display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
+
+/* Footer */
+footer.site{background:#162A3F;color:#B9CAD8;padding:56px 0 28px;font-size:.95rem}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
+.f-logo{background:#fff;border-radius:18px;padding:10px 14px;display:inline-block}
+.f-logo img{height:58px;width:auto}
+footer.site h4{color:#fff;font-size:1.05rem;font-weight:600;margin-bottom:12px}
+footer.site ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:var(--aqua)}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(185,202,216,.18);font-size:.88rem}
+.f-bottom nav{display:flex;flex-wrap:wrap;gap:18px}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px -8px rgba(0,0,0,.45);transition:transform .2s}
+.wa-float:hover{transform:scale(1.06)}
+.wa-float svg{width:32px;height:32px}
+
+/* Mobile nav */
+.m-nav{display:none}
+
+/* Responsive */
+@media (max-width:980px){
+  nav.main,.bar-tel{display:none}
+  .menu-btn{display:block}
+  .m-nav{display:block;position:absolute;top:100%;left:0;right:0;background:var(--mist);border-bottom:1px solid rgba(29,54,80,.1);padding:8px var(--gutter) 22px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;z-index:49}
+  .m-nav.open{opacity:1;visibility:visible;transform:none}
+  .m-nav a{display:block;padding:14px 0;font:600 1.3rem "League Spartan",sans-serif;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(29,54,80,.1)}
+  .m-nav .btn{margin-top:18px;width:100%;justify-content:center}
+  .hero-grid,.stage-panel,.clinic-grid,.contact-grid,.rev-top{grid-template-columns:1fr}
+  .hero-figure{max-width:440px;margin:0 auto;width:100%}
+  .treat-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .final-box{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .stage-panel .arch{max-width:380px}
+}
+@media (max-width:620px){
+  body{font-size:1rem}
+  .bar{height:68px}
+  .brand img{height:46px}
+  .bar-cta .btn{padding:.85em 1em .75em}
+  .bar-cta .btn span{display:none}
+  .hero .actions .btn,.contact .actions .btn,.final-box .actions .btn{flex:1 1 100%;justify-content:center}
+  .hero-figure figcaption{left:10px;bottom:14px;max-width:210px;font-size:.85rem}
+  .hero-figure::before{inset:-10px -10px auto auto}
+  .stage-rail{grid-template-columns:repeat(4,1fr)}
+  .stage-tab{font-size:.88rem;gap:10px;padding:0 2px 6px}
+  .stage-tab .dot{width:46px;height:46px}
+  .stage-rail::before{top:22px}
+  .treat{grid-template-columns:auto 1fr;gap:14px}
+  .treat img{width:52px;height:52px}
+  .treat .go{display:none}
+  .treat.feature h3::after{display:inline-block;margin:6px 0 0}
+  .team-grid{gap:22px 14px}
+  .member h3{font-size:1.1rem}
+  .member p{font-size:.86rem}
+  .team-photo img{aspect-ratio:4/3}
+  .clinic .photos{gap:10px}
+  .f-grid{grid-template-columns:1fr}
+  .map,.map iframe{min-height:320px}
+  .wa-float{width:56px;height:56px;right:14px;bottom:14px}
+}
+/* =====================================================================
+   MOVIMIENTO · nivel "Vivo" contenido (salud): 500–800 ms, 18–26 px.
+   Todo estado oculto depende de <html class="js">; sin JS la página es estática.
+   ===================================================================== */
+:root{--ease:cubic-bezier(.2,.7,.2,1);--dist:26px}
+@media (max-width:640px){:root{--dist:18px}}
+body{overflow-x:clip}
+
+/* Revelación al hacer scroll, escalonada con --d */
+.js .rv{opacity:0;transform:translateY(var(--dist));transition:opacity .75s var(--ease),transform .75s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.rv-scale{transform:scale(.965)}
+.js .rv.in{opacity:1;transform:none}
+
+/* Hero: título línea a línea con máscara */
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.07em;margin-bottom:-.07em}
+.hero h1 .ln > span{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .ln > span{animation:ln-rise .95s var(--ease) both}
+  .hero h1 .ln:nth-child(2) > span{animation-delay:.1s}
+  .hero h1 .ln:nth-child(3) > span{animation-delay:.2s}
+  @keyframes ln-rise{from{transform:translateY(108%)}to{transform:none}}
+  /* Ken Burns lento y sello flotante */
+  .hero .arch img{animation:kb 20s ease-in-out 1.2s infinite alternate;transform-origin:50% 40%}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.08) translateY(-1.5%)}}
+  .hero-figure figcaption{animation:rise .8s var(--ease) .9s both,bob 5.5s ease-in-out 1.8s infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .hero-figure::before{animation:orb 1.2s var(--ease) .3s both}
+  @keyframes orb{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+}
+
+/* Cabecera que se compacta al hacer scroll + subrayado que crece */
+header.site{transition:box-shadow .3s,background-color .3s}
+header.site .bar{transition:height .3s var(--ease)}
+header.site .brand img{transition:height .3s var(--ease)}
+header.site.is-scrolled{box-shadow:0 10px 28px -20px rgba(29,54,80,.55);background:rgba(255,255,255,.94)}
+header.site.is-scrolled .bar{height:64px}
+header.site.is-scrolled .brand img{height:44px}
+nav.main a{position:relative;border-bottom:0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--aqua);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav.main a:hover::after,nav.main a:focus-visible::after,nav.main a.active::after{transform:scaleX(1)}
+nav.main a.active{color:#2f5f86}
+
+/* Botones: brillo que atraviesa + elevación */
+.btn{position:relative;overflow:hidden;transition:background .2s,color .2s,border-color .2s,transform .25s var(--ease),box-shadow .25s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease);pointer-events:none}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover::after{transform:translateX(120%)}
+.btn-wa{box-shadow:0 8px 20px -10px rgba(31,175,85,.8)}
+.btn-wa:hover{box-shadow:0 14px 28px -12px rgba(31,175,85,.9)}
+
+/* Franja continua con las especialidades reales */
+.band{background:linear-gradient(90deg,var(--steel),#86B9CF 50%,var(--aqua));color:var(--ink);padding:16px 0;overflow:clip}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .marquee-track,.marquee.off .marquee-track{animation-play-state:paused}
+.marquee-track span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font:600 1.15rem/1 "League Spartan",sans-serif;white-space:nowrap}
+.marquee-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Etapas: línea de progreso que avanza hasta la etapa elegida */
+.stage-rail::after{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:2px;background:var(--aqua);transform:scaleX(var(--sp,0));transform-origin:left;transition:transform .6s var(--ease)}
+@media (max-width:620px){.stage-rail::after{top:22px}}
+.stage-panel:not([hidden]) .arch img{animation:panel-zoom 1s var(--ease) both}
+.stage-panel:not([hidden]) li{animation:rise .6s var(--ease) both}
+.stage-panel:not([hidden]) li:nth-child(2){animation-delay:.08s}
+.stage-panel:not([hidden]) li:nth-child(3){animation-delay:.16s}
+.stage-panel:not([hidden]) li:nth-child(4){animation-delay:.24s}
+@keyframes panel-zoom{from{transform:scale(1.08)}to{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Tratamientos: la fila se desplaza y la foto hace zoom */
+.treat > img,.treat > div{transition:transform .4s var(--ease)}
+.treat:hover > img{transform:scale(1.12)}
+.treat:hover > div{transform:translateX(6px)}
+.treat{position:relative}
+.treat::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--aqua);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.treat:hover::after{transform:scaleX(1)}
+
+/* Fotos: zoom suave al pasar el ratón */
+.member .arch img{transition:transform .8s var(--ease)}
+.member:hover .arch img{transform:scale(1.05)}
+.pillars .ic{transition:background .3s,transform .3s var(--ease)}
+.pillars li:hover .ic{background:var(--aqua);transform:rotate(-8deg) scale(1.06)}
+
+/* Opiniones: carrusel con scroll-snap */
+.rev-car-wrap{position:relative}
+.rev-car{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:4px 2px 8px;align-items:stretch}
+.rev-car::-webkit-scrollbar{display:none}
+.rev-car > .rev{scroll-snap-align:start;margin:0;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.rev-car > .rev:hover{transform:translateY(-4px);box-shadow:0 20px 36px -26px rgba(29,54,80,.55)}
+.rev-ctrls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
+.rev-arrows{display:flex;gap:10px}
+.rev-arrows button{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s,transform .25s var(--ease)}
+.rev-arrows button:hover{background:var(--ink);color:#fff;transform:scale(1.06)}
+.rev-arrows svg{width:18px;height:18px}
+.rev-arrows [data-prev] svg{transform:rotate(180deg)}
+.rev-dots{display:flex;gap:8px}
+.rev-dots button{width:9px;height:9px;border-radius:999px;border:0;padding:0;background:rgba(29,54,80,.22);cursor:pointer;transition:width .3s var(--ease),background .3s}
+.rev-dots button[aria-current="true"]{width:28px;background:var(--ink)}
+@media (max-width:980px){.rev-car{grid-auto-columns:calc((100% - 20px)/2)}}
+@media (max-width:620px){.rev-car{grid-auto-columns:86%}.rev-arrows{display:none}.rev-ctrls{justify-content:center}}
+
+/* WhatsApp flotante con pulso (escritorio) y barra fija (móvil) */
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:pulse 2.4s ease-out infinite;pointer-events:none}
+@keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
+.m-bar{display:none}
+@media (max-width:860px){
+  .wa-float{display:none}
+  .m-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(29,54,80,.1);transform:translateY(110%);transition:transform .4s var(--ease)}
+  .m-bar.show{transform:none}
+  .m-bar .btn{justify-content:center;padding:.9em .8em .8em}
+  footer.site{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+}
+.no-js .m-bar,html:not(.js) .m-bar{transform:none}
+
+/* Final CTA: el anillo decorativo gira despacio */
+@media (prefers-reduced-motion:no-preference){.final-box::after{animation:spin-ring 30s linear infinite;border-style:dashed}@keyframes spin-ring{to{transform:rotate(360deg)}}}
+
+/* Mapa con carga bajo demanda (sin peticiones a Google hasta el clic) */
+.map{display:flex}
+.map-gate{margin:auto;padding:clamp(24px,4vw,44px);max-width:30rem;text-align:center}
+.map-gate > svg{width:40px;height:40px;color:var(--steel);margin:0 auto 10px;display:block}
+.map-gate .map-title{font:600 1.35rem "League Spartan",sans-serif;color:var(--ink);margin-bottom:8px}
+.map-gate p{color:var(--muted);font-size:.95rem}
+.map-gate a:not(.btn){color:var(--ink)}
+.map-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.map iframe{flex:1}
+
+/* Aviso de WhatsApp */
+.wa-note{margin-top:18px;font-size:.88rem;color:var(--muted);max-width:36em;line-height:1.5}
+.wa-note a{color:var(--ink)}
+
+/* Controles de pausa (WCAG 2.2.2) */
+.band{position:relative}
+.band .marquee{margin-right:56px}
+.motion-toggle{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.motion-toggle:hover{background:var(--ink);color:#fff}
+.motion-toggle svg{width:16px;height:16px}
+.band .motion-toggle{position:absolute;right:max(12px,var(--gutter));top:50%;margin-top:-20px;background:rgba(255,255,255,.55);border-color:transparent}
+.band .motion-toggle:hover{background:var(--ink);color:#fff}
+.marquee.paused .marquee-track{animation-play-state:paused}
+.motion-toggle .i-play{display:none}
+.motion-toggle[aria-pressed="true"] .i-pause{display:none}
+.motion-toggle[aria-pressed="true"] .i-play{display:block}
+.rev-ctrls .left{display:flex;align-items:center;gap:14px}
+@media (max-width:620px){.rev-ctrls{justify-content:center}}
+
+@media (prefers-reduced-motion:reduce){
+  .motion-toggle{display:none}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .rv{opacity:1;transform:none}
+  .rev-car{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.39 9.39 0 0 1-1.44-5.01c0-5.2 4.23-9.42 9.43-9.42a9.37 9.37 0 0 1 9.42 9.43c0 5.2-4.23 9.42-9.43 9.42m8.02-17.44A11.27 11.27 0 0 0 12.05.75C5.8.75.72 5.83.72 12.08c0 2 .52 3.95 1.52 5.66L.62 23.62l6.02-1.58a11.3 11.3 0 0 0 5.4 1.38h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.31-8.01"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8.5V6.8c0-.8.5-1 .9-1h2.4V2.1L14 2c-3.6 0-4.4 2.7-4.4 4.4v2.1H7.5v3.8h2.1V22H14v-9.7h3l.4-3.8z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-google" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.2 3.5-8.8"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.9 3.6-4.9 6.7-4.9"/></symbol>
+  <!-- etapas -->
+  <symbol id="i-baby" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"/><path d="M12 3c-1 1.5-.5 3 1 3"/></g></symbol>
+  <symbol id="i-teen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c2.5 3 5 4 8 4s5.5-1 8-4"/><path d="M6 11.6v1.8M10 13.6v1.8M14 13.6v1.8M18 11.6v1.8M5 12.5h14"/></g></symbol>
+  <symbol id="i-adult" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 3.4L17 8l-3.4 1.6L12 13l-1.6-3.4L7 8l3.4-1.6z"/><path d="M18 14l.8 1.7 1.7.8-1.7.8L18 19l-.8-1.7-1.7-.8 1.7-.8zM6 15l.6 1.2 1.2.6-1.2.6L6 18.6l-.6-1.2-1.2-.6 1.2-.6z"/></g></symbol>
+  <symbol id="i-senior" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.2-9.2C1.6 8.4 3.8 5 7.2 5c2 0 3.4 1 4.8 2.6C13.4 6 14.8 5 16.8 5c3.4 0 5.6 3.4 4.4 6.8C19.5 16.4 12 21 12 21z"/></g></symbol>
+  <!-- pilares -->
+  <symbol id="i-team" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.1-8 9-4.6-.9-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.8A8 8 0 1 1 21 12z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></g></symbol>
+  <symbol id="i-tech" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-2.2 0-4 1.8-4 4.2 0 3 1.3 5 2 7.8.5 2.4 1 6 2.6 6 1.4 0 1.6-3.2 2.2-5 .3-1 .9-1.5 2.2-1.5s1.9.5 2.2 1.5c.6 1.8.8 5 2.2 5 1.6 0 2.1-3.6 2.6-6 .7-2.8 2-4.8 2-7.8C21 4.8 19.2 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></g></symbol>
+</svg>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="Clínica Dental Boadilla DC, inicio">
+      <img src="https://boadilladc.com/wp-content/uploads/2025/10/BDC_LogoFinal_doscolores.pdf-removebg-preview.png" alt="Boadilla DC · ortodoncia y odontopediatría" width="154" height="119">
+    </a>
+    <nav class="main" aria-label="Principal">
+      <a href="#etapas">Cada etapa</a>
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="bar-cta">
+      <a class="bar-tel" href="tel:+34911215826">911 215 826</a>
+      <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener" data-wa><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Pedir cita</span></a>
+      <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="m-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <nav class="m-nav" id="m-nav" aria-label="Menú móvil">
+    <a href="#etapas">Cada etapa</a>
+    <a href="#tratamientos">Tratamientos</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-line" href="tel:+34911215826"><svg aria-hidden="true"><use href="#i-phone"/></svg>Llamar al 911 215 826</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="h-hero"><span class="ln"><span>Clínica dental</span></span> <span class="ln"><span>familiar en</span></span> <span class="ln"><span>Boadilla del Monte</span></span><span class="sub">Especialistas en ortodoncia y odontopediatría</span></h1>
+        <p class="lead">Cuidamos la salud bucodental de toda la familia, desde bebés y niños hasta adolescentes, adultos y mayores, con tratamientos modernos, cómodos y eficaces.</p>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir cita por WhatsApp</a>
+          <a class="btn btn-line" href="tel:+34911215826"><svg aria-hidden="true"><use href="#i-phone"/></svg>Llamar al 911 215 826</a>
+        </div>
+        <p class="where"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Centro Comercial Cortijo Sur, C. Río Tajo, 1, Local 1 · 28669 Boadilla del Monte, Madrid</span></p>
+      </div>
+      <figure class="hero-figure" style="margin:0">
+        <div class="arch">
+          <img src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-scaled.jpg" alt="Equipo de la Clínica Dental Boadilla DC en la clínica" fetchpriority="high">
+        </div>
+        <figcaption><strong>“Siempre te atienden las mismas personas”</strong>Opinión de una paciente en Google</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FRANJA DE ESPECIALIDADES -->
+  <div class="band" aria-label="Especialidades de la clínica">
+    <div class="marquee" data-marquee>
+      <div class="marquee-track">
+        <span>Ortodoncia</span><span>Odontopediatría</span><span>Ortodoncia invisible</span><span>Implantología dental</span><span>Estética dental</span><span>Endodoncia</span><span>Periodoncia</span><span>Prótesis dental</span>
+      </div>
+    </div>
+    <button type="button" class="motion-toggle" data-pause-marquee aria-pressed="false" aria-label="Pausar la franja animada"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5l11 7-11 7z"/></svg></button>
+  </div>
+
+  <!-- ETAPAS (sello) -->
+  <section class="etapas" id="etapas" aria-labelledby="h-etapas">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-etapas">Cuidamos sonrisas en cada etapa</h2>
+        <p>Un cuidado dental adaptado a cada edad. Elige una etapa para ver cómo te acompañamos.</p>
+      </div>
+
+      <div class="stage-rail" role="tablist" aria-label="Etapas de la vida">
+        <button class="stage-tab" role="tab" id="t-ninos" aria-controls="p-ninos" aria-selected="true"><span class="dot"><svg aria-hidden="true"><use href="#i-baby"/></svg></span>Bebés y niños</button>
+        <button class="stage-tab" role="tab" id="t-adol" aria-controls="p-adol" aria-selected="false" tabindex="-1"><span class="dot"><svg aria-hidden="true"><use href="#i-teen"/></svg></span>Adolescentes</button>
+        <button class="stage-tab" role="tab" id="t-adul" aria-controls="p-adul" aria-selected="false" tabindex="-1"><span class="dot"><svg aria-hidden="true"><use href="#i-adult"/></svg></span>Adultos</button>
+        <button class="stage-tab" role="tab" id="t-may" aria-controls="p-may" aria-selected="false" tabindex="-1"><span class="dot"><svg aria-hidden="true"><use href="#i-senior"/></svg></span>Mayores</button>
+      </div>
+
+      <div class="stage-panel" role="tabpanel" id="p-ninos" aria-labelledby="t-ninos">
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-scaled.jpg" alt="Doctora mostrando un aparato de ortodoncia a una niña"></div>
+        <div>
+          <h3>Una sonrisa sana desde el principio</h3>
+          <p>Acompañamos a bebés y niños en cada etapa de su desarrollo, con revisiones infantiles, tratamientos preventivos y ortodoncia desde edades tempranas.</p>
+          <ul>
+            <li><a href="https://boadilladc.com/odontopediatria-en-boadilla-del-monte/"><strong>Odontopediatría</strong><span>Revisiones infantiles y tratamientos preventivos</span></a></li>
+            <li><a href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/"><strong>Aparatología funcional</strong><span>Para corregir mala oclusión y mordida cruzada</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stage-panel" role="tabpanel" id="p-adol" aria-labelledby="t-adol" hidden>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-scaled.jpg" alt="Paciente joven durante una revisión en Boadilla DC"></div>
+        <div>
+          <h3>Ortodoncia con todas las técnicas</h3>
+          <p>Prevenimos, corregimos y cuidamos la mordida con tratamientos modernos y cómodos, pensados para el día a día de los adolescentes.</p>
+          <ul>
+            <li><a href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/"><strong>Ortodoncia</strong><span>Brackets metálicos, de colores, estéticos y ortodoncia invisible</span></a></li>
+            <li><a href="https://boadilladc.com/ortodoncia-del-canino-incluido-en-boadilla-del-monte/"><strong>Ortodoncia del canino incluido</strong><span>Tratamiento especializado de caninos incluidos</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stage-panel" role="tabpanel" id="p-adul" aria-labelledby="t-adul" hidden>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-scaled.jpg" alt="Modelo dental con ortodoncia en manos de la doctora"></div>
+        <div>
+          <h3>Odontología avanzada y conservadora</h3>
+          <p>Materiales de alta calidad y tecnología de última generación para lograr resultados duraderos y naturales.</p>
+          <ul>
+            <li><a href="https://boadilladc.com/estetica-dental-en-boadilla-del-monte/"><strong>Estética dental</strong><span>Blanqueamiento en clínica y ambulatorio, y carillas dentales</span></a></li>
+            <li><a href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/"><strong>Ortodoncia invisible</strong><span>Alineadores invisibles y brackets estéticos</span></a></li>
+            <li><a href="https://boadilladc.com/endodoncia-en-boadilla-del-monte/"><strong>Endodoncia</strong><span>Odontología conservadora</span></a></li>
+            <li><a href="https://boadilladc.com/periodoncia-en-boadilla-del-monte/"><strong>Periodoncia</strong><span>Cuidado de encías</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stage-panel" role="tabpanel" id="p-may" aria-labelledby="t-may" hidden>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-2054-scaled.jpg" alt="Gabinete dental de la Clínica Boadilla DC"></div>
+        <div>
+          <h3>Estética, comodidad y funcionalidad a largo plazo</h3>
+          <p>Implantes de alta calidad en titanio y coronas duraderas, con un tratamiento adaptado a la realidad de cada persona.</p>
+          <ul>
+            <li><a href="https://boadilladc.com/implantologia-dental-en-boadilla-del-monte/"><strong>Implantología dental</strong><span>Implantes de titanio y coronas duraderas</span></a></li>
+            <li><a href="https://boadilladc.com/protesis-dental-en-boadilla-del-monte/"><strong>Prótesis dental</strong><span>Rehabilitación oral</span></a></li>
+          </ul>
+          <blockquote>“Con mi madre de 89 años han sabido adaptar el tratamiento y atenderla.”<cite>Leire Nuere Salgado, opinión en Google</cite></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMIENTOS -->
+  <section id="tratamientos" aria-labelledby="h-trat">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-trat">Tratamientos</h2>
+        <p>Odontología integral y avanzada para toda la familia. Toca un tratamiento para conocerlo en detalle.</p>
+      </div>
+      <div class="treat-grid">
+        <a class="treat feature" href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0619-scaled-rcybadso8kiekzkc7w1uyxkk2gc5g3b0u8u4u6hvns.jpg" alt=""><div><h3>Ortodoncia</h3><p>Brackets metálicos, de colores, estéticos, ortodoncia invisible y aparatología funcional</p></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat feature" href="https://boadilladc.com/odontopediatria-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0023-scaled-rcya18lq00pmz750tvjwptokz8uirf34asvm2rfki0.jpg" alt=""><div><h3>Odontopediatría</h3><p>Revisiones infantiles y tratamientos preventivos para bebés y niños</p></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/ortodoncia-del-canino-incluido-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0018-scaled-rcya0psy7bzwizwbvnfdbyfd3jf6hh0hk7twh87fyg.jpg" alt=""><div><h3>Ortodoncia del canino incluido</h3></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/estetica-dental-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0155-scaled-rcyaanxgj7m5efg4sg887y1zfce0y5i7xgdwbngg3s.jpg" alt=""><div><h3>Estética dental</h3><p>Blanqueamiento en clínica y ambulatorio, y carillas dentales</p></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/implantologia-dental-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0548-scaled-rcyb6obla3foscy7vacu4v93pqm132l4zw76ovzs7c.jpg" alt=""><div><h3>Implantología dental</h3><p>Implantes de alta calidad en titanio y coronas duraderas</p></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/endodoncia-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0791-scaled-rcybfrffcfvh0nr2t7r08kpifttrhqnq8v85p6is20.jpg" alt=""><div><h3>Endodoncia</h3></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/periodoncia-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0766-scaled-rcyberpk4qikrh6ylsb6ltpzv6ptd8pxfyfpgnzqmg.jpg" alt=""><div><h3>Periodoncia</h3></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="treat" href="https://boadilladc.com/protesis-dental-en-boadilla-del-monte/"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-0646-scaled-rcybb6xo4fmakwe0hqnam87uhecj2pipa926praoaw.jpg" alt=""><div><h3>Prótesis dental</h3></div><span class="go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLÍNICA / DIFERENCIALES -->
+  <section class="clinic" id="clinica" aria-labelledby="h-clinic">
+    <div class="wrap clinic-grid">
+      <div class="photos">
+        <img class="tall" loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-2045-1-scaled.jpg" alt="Sala de espera de la clínica con un gran árbol decorativo y ventanales">
+        <img class="p1" loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-2007-scaled-rcybkii1wadnpoul29p3udjejyekenivkdyj1jh4lk.jpg" alt="Zona de espera con paredes de madera">
+        <img class="p2" loading="lazy" src="https://boadilladc.com/wp-content/uploads/elementor/thumbs/GARPRESS-2052-scaled-rcybme6fkcyaxm4a32y8twglbp4zsuzjtoxhlgos5k.jpg" alt="Logotipo de Boadilla DC en la recepción">
+      </div>
+      <div class="body">
+        <h2 id="h-clinic">Que cada visita al dentista sea una experiencia positiva</h2>
+        <p>Nuestro equipo multidisciplinar combina experiencia, tecnología y un trato cercano para que cada paciente, niños, adultos y mayores, reciba una atención personalizada y de confianza.</p>
+        <ul class="pillars">
+          <li><span class="ic"><svg aria-hidden="true"><use href="#i-team"/></svg></span><div><strong>Equipo multidisciplinar</strong><span>Especialistas en ortodoncia, odontopediatría, endodoncia, cirugía oral e implantología.</span></div></li>
+          <li><span class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><div><strong>Trato cercano y transparente</strong><span>Te asesoramos con claridad, sin tratamientos innecesarios.</span></div></li>
+          <li><span class="ic"><svg aria-hidden="true"><use href="#i-tech"/></svg></span><div><strong>Materiales de alta calidad</strong><span>Tecnología de última generación para resultados duraderos y naturales.</span></div></li>
+          <li><span class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><div><strong>Prevención ante todo</strong><span>Prevenir, corregir y cuidar la salud bucodental de toda la familia.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo" aria-labelledby="h-team">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-team">El equipo</h2>
+        <p>Las mismas caras en cada visita. Conócenos antes de venir.</p>
+      </div>
+      <div class="team-grid">
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2026/03/DSC_0031-scaled.jpg" alt="Dra. Laura Díaz Rubio"></div><h3>Dra. Laura Díaz Rubio</h3><p>Especialista en ortodoncia y ortopedia dentofacial. Codirectora.</p></article>
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2026/03/DSC_0024-scaled.jpg" alt="Dra. Pilar Pérez"></div><h3>Dra. Pilar Pérez</h3><p>Especialista en ortodoncia y ortopedia dentofacial. Codirectora.</p></article>
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0088-1536x2048.jpg" alt="Dra. Alba Vilanova"></div><h3>Dra. Alba Vilanova</h3><p>Especialista en odontopediatría.</p></article>
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0347-scaled.jpg" alt="Dra. Bettina Day"></div><h3>Dra. Bettina Day</h3><p>Especialista en endodoncia, odontología conservadora y rehabilitación oral.</p></article>
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0204-scaled.jpg" alt="Dr. Roberto Olmo"></div><h3>Dr. Roberto Olmo</h3><p>Especialista en cirugía oral, implantología, rehabilitación oral y medicina oral.</p></article>
+        <article class="member"><div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2026/03/DSC_0022-scaled.jpg" alt="Paula Ledesma"></div><h3>Paula Ledesma</h3><p>Higienista dental.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section class="reviews" id="opiniones" aria-labelledby="h-rev">
+    <div class="wrap">
+      <div class="rev-top">
+        <div>
+          <h2 id="h-rev" class="sec-head" style="margin:0 0 28px;font-size:clamp(2rem,4.4vw,3.3rem);font-weight:700">Lo que dicen nuestros pacientes</h2>
+          <blockquote class="rev-feature">“Aquí siempre te atienden las mismas personas y conocen tu caso al detalle, lo que da muchísima seguridad y paz.”
+            <footer><span class="stars" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Laura Córdoba</footer>
+          </blockquote>
+        </div>
+        <div>
+          <p class="g-score"><b data-count="5.0">5,0</b><span><span class="stars" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="g-note"><svg aria-hidden="true"><use href="#i-google"/></svg>Valoración en Google</span></span></p>
+          <a class="btn btn-line" href="https://g.page/r/Ca1rQI64ILdUEBM/review" target="_blank" rel="noopener">Déjanos tu opinión</a>
+        </div>
+      </div>
+      <div class="rev-car-wrap" data-carousel-root data-autoplay="6000">
+      <div class="rev-car" data-carousel aria-label="Opiniones de pacientes" role="region">
+        <figure class="rev"><p>Esta clínica ha sido todo un descubrimiento. Son súper atentas y delicadas; en todo momento te preguntan si estás bien. Llegué con una muela hecha polvo y pensaba extraerla, pero han hecho todo por salvar mi pieza dental. ¡Son las mejores! 10/10</p><footer><b>Natalia Toro Marín</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Muy amables y confiables. Enfocados en la salud más que en el negocio. Muy profesionales.</p><footer><b>José María Alcázar</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Pilar y Betina son dos profesionales estupendas y, además, cariñosas y que se preocupan porque realmente se haga lo mejor para lo que necesitas. A mí siempre me han dado facilidades dadas mis restricciones de horario.</p><footer><b>Leire Nuere Salgado</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Llevo varios tratamientos en este centro, trato de 10 y siempre están pendientes de mi evolución.</p><footer><b>Alfonso Gómez</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Trato increíble. Pilar muy buena profesional pero mejor persona. Hace que el dentista sea apetecible.</p><footer><b>Daniel Tordesillas López</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Un trato muy profesional. Muy atentos durante el tratamiento y previamente a la visita. 100% recomendable. ¡Volveré seguro!</p><footer><b>Rubén Díaz Martín</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Fui a hacerme una limpieza y el trato excepcional, muchísimas gracias a Laura y Pilar.</p><footer><b>Laura Molina</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>¡Laura es la mejor! Muy detallista.</p><footer><b>David Elvira Maldonado</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+      </div>
+      <div class="rev-ctrls">
+        <div class="left">
+          <button type="button" class="motion-toggle" data-pause-carousel aria-pressed="false" aria-label="Pausar el avance automático de opiniones"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5l11 7-11 7z"/></svg></button>
+          <div class="rev-dots" data-dots></div>
+        </div>
+        <div class="rev-arrows">
+          <button type="button" data-prev aria-label="Opinión anterior"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button type="button" data-next aria-label="Opinión siguiente"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto" aria-labelledby="h-contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="h-contact">Visítanos en Boadilla del Monte</h2>
+        <p class="intro">Estamos en el Centro Comercial Cortijo Sur. Escríbenos por WhatsApp o llámanos y te damos cita.</p>
+        <ul class="c-list">
+          <li><svg aria-hidden="true"><use href="#i-wa"/></svg><div><small>WhatsApp y móvil</small><a href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener">640 918 399</a></div></li>
+          <li><svg aria-hidden="true"><use href="#i-phone"/></svg><div><small>Teléfono de la clínica</small><a href="tel:+34911215826">911 215 826</a></div></li>
+          <li><svg aria-hidden="true"><use href="#i-mail"/></svg><div><small>Correo electrónico</small><a href="mailto:info@boadilladc.com">info@boadilladc.com</a></div></li>
+          <li><svg aria-hidden="true"><use href="#i-pin"/></svg><div><small>Dirección</small><address><a href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Dental%20Boadilla%20DC%2C%20Calle%20R%C3%ADo%20Tajo%201%2C%2028669%20Boadilla%20del%20Monte" target="_blank" rel="noopener">C. Río Tajo, 1, Local 1</a><br>C.C. Cortijo Sur · 28669 Boadilla del Monte, Madrid</address></div></li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir cita por WhatsApp</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=Cl%C3%ADnica%20Dental%20Boadilla%20DC%2C%20Calle%20R%C3%ADo%20Tajo%201%2C%2028669%20Boadilla%20del%20Monte" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Cómo llegar</a>
+        </div>
+        <p class="wa-note">Si nos escribes por WhatsApp, la conversación pasa por un servicio de Meta, sujeto también a sus propias condiciones y política de privacidad. Te contamos cómo tratamos tus datos en la <a href="politica-privacidad.html">política de privacidad</a>.</p>
+      </div>
+      <div class="map" data-map-src="https://maps.google.com/maps?q=Cl%C3%ADnica%20Dental%20Boadilla%20DC%2C%20Calle%20R%C3%ADo%20Tajo%201%2C%2028669%20Boadilla%20del%20Monte&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near">
+        <div class="map-gate">
+          <svg aria-hidden="true"><use href="#i-pin"/></svg>
+          <p class="map-title">Mapa de Google Maps</p>
+          <p>Para no enviar datos a Google sin tu permiso, el mapa no se carga automáticamente. Al cargarlo, Google recibirá datos técnicos de tu navegador (como tu dirección IP) y podrá instalar cookies propias. Más información en la <a href="politica-cookies.html">política de cookies</a>.</p>
+          <div class="map-actions">
+            <button type="button" class="btn btn-line" data-map-load>Cargar el mapa</button>
+            <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&amp;query=Cl%C3%ADnica%20Dental%20Boadilla%20DC%2C%20Calle%20R%C3%ADo%20Tajo%201%2C%2028669%20Boadilla%20del%20Monte" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <div class="final">
+    <div class="wrap">
+      <div class="final-box">
+        <div>
+          <h2>¿Te ayudamos?</h2>
+          <p>Cuéntanos qué necesitas tú o tu familia y te respondemos por WhatsApp.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+          <a class="btn btn-light" href="tel:+34911215826"><svg aria-hidden="true"><use href="#i-phone"/></svg>911 215 826</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <span class="f-logo"><img src="https://boadilladc.com/wp-content/uploads/2025/10/BDC_LogoFinal_doscolores.pdf-removebg-preview.png" alt="Boadilla DC" width="154" height="119"></span>
+        <p style="margin-top:16px;max-width:26em">Clínica dental familiar en Boadilla del Monte. Especialistas en ortodoncia y odontopediatría.</p>
+      </div>
+      <div>
+        <h4>Tratamientos</h4>
+        <ul>
+          <li><a href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/">Ortodoncia</a></li>
+          <li><a href="https://boadilladc.com/odontopediatria-en-boadilla-del-monte/">Odontopediatría</a></li>
+          <li><a href="https://boadilladc.com/ortodoncia-del-canino-incluido-en-boadilla-del-monte/">Ortodoncia del canino incluido</a></li>
+          <li><a href="https://boadilladc.com/endodoncia-en-boadilla-del-monte/">Endodoncia</a></li>
+          <li><a href="https://boadilladc.com/periodoncia-en-boadilla-del-monte/">Periodoncia</a></li>
+          <li><a href="https://boadilladc.com/implantologia-dental-en-boadilla-del-monte/">Implantología dental</a></li>
+          <li><a href="https://boadilladc.com/estetica-dental-en-boadilla-del-monte/">Estética dental</a></li>
+          <li><a href="https://boadilladc.com/protesis-dental-en-boadilla-del-monte/">Prótesis dental</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+34911215826">911 215 826</a></li>
+          <li><a href="https://wa.me/34640918399" target="_blank" rel="noopener">640 918 399 (WhatsApp)</a></li>
+          <li><a href="mailto:info@boadilladc.com">info@boadilladc.com</a></li>
+          <li>C.C. Cortijo Sur, C. Río Tajo, 1, Local 1<br>28669 Boadilla del Monte, Madrid</li>
+          <li style="display:flex;gap:14px;margin-top:8px">
+            <a href="https://www.instagram.com/dentalboadilladc/" target="_blank" rel="noopener" aria-label="Instagram @dentalboadilladc"><svg width="24" height="24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+            <a href="https://www.facebook.com/people/Clinica-Dental-Boadilla-DC/61566357717266/?locale=es_ES" target="_blank" rel="noopener" aria-label="Facebook"><svg width="24" height="24" aria-hidden="true"><use href="#i-fb"/></svg></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="yr">2026</span> Boadilla DC SL · NIF B72571292</span>
+      <nav aria-label="Legal">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="politica-privacidad.html">Política de privacidad</a>
+        <a href="politica-cookies.html">Política de cookies</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div class="m-bar" aria-label="Contacto rápido">
+  <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn btn-line" href="tel:+34911215826"><svg aria-hidden="true"><use href="#i-phone"/></svg>Llamar</a>
+</div>
+
+<a class="wa-float" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<script>
+// Movimiento: solo se oculta contenido si este script corre
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+
+// Revelación escalonada al hacer scroll (con red de seguridad de 2,5 s)
+(function(){
+  const groups=[
+    ['.sec-head',0],['.etapas .stage-rail',.1],['.treat',.06],['.clinic .photos > img',.1],
+    ['.clinic .body > *',.08],['.pillars li',.08],['.member',.08],['.rev-top > div',.1],
+    ['.rev-car-wrap',.1],['.c-list li',.06],['.contact .actions',0],['.map',.1],['.final-box',0],['.f-grid > div',.08]
+  ];
+  const els=[];
+  groups.forEach(([sel,step])=>{
+    const list=[...document.querySelectorAll(sel)];
+    list.forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--d',(Math.min(i,6)*step).toFixed(2)+'s');els.push(el);});
+  });
+  document.querySelectorAll('.map,.final-box,.clinic .photos > img').forEach(e=>e.classList.add('rv-scale'));
+  if(RM||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>io.observe(e));
+  setTimeout(()=>els.forEach(e=>{if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in');}),2500);
+})();
+
+// Cabecera compacta, enlace activo y barra móvil
+(function(){
+  const h=document.querySelector('header.site'),bar=document.querySelector('.m-bar'),hero=document.querySelector('.hero .actions');
+  const f=()=>{h.classList.toggle('is-scrolled',scrollY>10);
+    if(bar&&hero){bar.classList.toggle('show',hero.getBoundingClientRect().bottom<0);}};
+  addEventListener('scroll',f,{passive:true});f();
+  const links=[...document.querySelectorAll('nav.main a')];
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s);});
+  }
+})();
+
+// Franja continua: duplica el contenido (oculto a lectores) y pausa fuera de pantalla
+(function(){
+  document.querySelectorAll('[data-marquee]').forEach(box=>{
+    const t=box.querySelector('.marquee-track');
+    [...t.children].forEach(k=>{const c=k.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);});
+    if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(e=>box.classList.toggle('off',!e.isIntersecting))).observe(box);
+  });
+  const mb=document.querySelector('[data-pause-marquee]'),mq=document.querySelector('[data-marquee]');
+  if(mb&&mq)mb.addEventListener('click',()=>{const p=mq.classList.toggle('paused');mb.setAttribute('aria-pressed',p);mb.setAttribute('aria-label',p?'Reanudar la franja animada':'Pausar la franja animada');});
+})();
+
+// Mapa: solo se carga (y solo se contacta con Google) cuando la persona lo pide
+(function(){
+  const box=document.querySelector('[data-map-src]');if(!box)return;
+  box.querySelector('[data-map-load]').addEventListener('click',()=>{
+    const f=document.createElement('iframe');
+    f.title='Mapa de la Clínica Dental Boadilla DC';f.src=box.getAttribute('data-map-src');
+    f.referrerPolicy='no-referrer-when-downgrade';f.setAttribute('allowfullscreen','');
+    box.innerHTML='';box.appendChild(f);f.focus();
+  });
+})();
+
+// Contador de la valoración (valor final garantizado)
+(function(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const raw=el.getAttribute('data-count'),to=parseFloat(raw),dec=(raw.split('.')[1]||'').length;
+    const fmt=v=>v.toLocaleString('es-ES',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+    if(RM||!('IntersectionObserver' in window)){el.textContent=fmt(to);return;}
+    const run=()=>{let t0=null;const dur=1300;
+      const step=t=>{if(!t0)t0=t;const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e);if(p<1)requestAnimationFrame(step);};
+      requestAnimationFrame(step);setTimeout(()=>el.textContent=fmt(to),dur+600);};
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run();io.unobserve(el);}}),{threshold:.6});
+    io.observe(el);
+  });
+})();
+
+// Carrusel de opiniones: flechas, puntos y avance automático que se pausa
+(function(){
+  document.querySelectorAll('[data-carousel-root]').forEach(wrap=>{
+    const car=wrap.querySelector('[data-carousel]'),cards=car.children,dots=wrap.querySelector('[data-dots]');
+    const delay=parseInt(wrap.getAttribute('data-autoplay')||'5000',10);let paused=false,userPaused=false,timer=null;
+    const pb=wrap.querySelector('[data-pause-carousel]');
+    if(pb)pb.addEventListener('click',()=>{userPaused=!userPaused;pb.setAttribute('aria-pressed',userPaused);pb.setAttribute('aria-label',userPaused?'Reanudar el avance automático de opiniones':'Pausar el avance automático de opiniones');});
+    const stepW=()=>cards[1].offsetLeft-cards[0].offsetLeft;
+    const perView=()=>Math.max(1,Math.round(car.clientWidth/cards[0].getBoundingClientRect().width));
+    const pages=()=>Math.max(1,cards.length-perView()+1);
+    const cur=()=>Math.round(car.scrollLeft/stepW());
+    const go=i=>{const n=pages();i=(i+n)%n;car.scrollTo({left:i*stepW(),behavior:RM?'auto':'smooth'});};
+    const mark=()=>{const c=cur();[...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===c?'true':'false'));};
+    const build=()=>{dots.innerHTML='';for(let i=0;i<pages();i++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir a la opinión '+(i+1));b.addEventListener('click',()=>{go(i);restart();});dots.appendChild(b);}mark();};
+    const restart=()=>{clearInterval(timer);if(!RM&&delay>0)timer=setInterval(()=>{if(!paused&&!userPaused&&!document.hidden)go(cur()+1);},delay);};
+    car.addEventListener('scroll',()=>requestAnimationFrame(mark),{passive:true});
+    wrap.querySelector('[data-prev]').addEventListener('click',()=>{go(cur()-1);restart();});
+    wrap.querySelector('[data-next]').addEventListener('click',()=>{go(cur()+1);restart();});
+    car.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(cur()+1);restart();}if(e.key==='ArrowLeft'){go(cur()-1);restart();}});
+    ['mouseenter','focusin'].forEach(t=>wrap.addEventListener(t,()=>paused=true));
+    ['mouseleave','focusout'].forEach(t=>wrap.addEventListener(t,()=>paused=false));
+    car.addEventListener('touchstart',restart,{passive:true});
+    car.tabIndex=0;addEventListener('resize',build);build();restart();
+  });
+})();
+
+// Tabs de etapas (accesibles con teclado) + línea de progreso
+(function(){
+  const tabs=[...document.querySelectorAll('.stage-tab')],rail=document.querySelector('.stage-rail');
+  function select(t,focus){
+    tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+    rail.style.setProperty('--sp',(tabs.indexOf(t)/(tabs.length-1)).toFixed(3));
+    if(focus)t.focus();
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>select(t));
+    t.addEventListener('keydown',e=>{
+      let n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(e.key==='Home')n=tabs[0]; if(e.key==='End')n=tabs[tabs.length-1];
+      if(n){e.preventDefault();select(n,true);}
+    });
+  });
+})();
+// Menú móvil
+(function(){
+  const b=document.querySelector('.menu-btn'),m=document.getElementById('m-nav');
+  b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false');}));
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

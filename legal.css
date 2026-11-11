@@ -1,0 +1,37 @@
+/* Estilos compartidos de las páginas legales (mismos tokens que la portada) */
+:root{--ink:#1D3650;--steel:#789CB4;--aqua:#9CD8E4;--aqua-soft:#DDF1F5;--mist:#F2F7F9;--text:#22313F;--muted:#566675;--wa:#1FAF55;--gutter:clamp(16px,4vw,40px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--mist);color:var(--text);font:400 1.0625rem/1.7 "Atkinson Hyperlegible",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--steel);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:200}
+.skip:focus{left:8px}
+h1,h2,h3{font-family:"League Spartan",system-ui,sans-serif;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(29,54,80,.08)}
+.bar{max-width:1180px;margin:0 auto;padding:0 var(--gutter);height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar img{height:46px;width:auto;display:block}
+.back{font:600 1rem "League Spartan",sans-serif;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+.back:hover{text-decoration:underline;text-decoration-color:var(--aqua);text-decoration-thickness:3px;text-underline-offset:4px}
+main{max-width:46rem;margin:0 auto;padding:clamp(36px,6vw,72px) var(--gutter) clamp(56px,8vw,96px)}
+h1{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;margin:0 0 8px}
+.updated{color:var(--muted);margin:0 0 36px}
+h2{font-size:1.5rem;font-weight:600;margin:44px 0 12px;padding-top:20px;border-top:1px solid rgba(29,54,80,.12)}
+h3{font-size:1.15rem;font-weight:600;margin:24px 0 8px}
+p,ul{margin:0 0 14px}
+ul{padding-left:1.2em}
+li{margin-bottom:6px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0 0 14px}
+dt{font-weight:700;color:var(--ink)}
+dd{margin:0}
+@media (max-width:520px){dl{grid-template-columns:1fr}dd{margin-bottom:8px}}
+.table-wrap{overflow-x:auto;margin:0 0 18px;border-radius:14px;background:#fff;border:1px solid rgba(29,54,80,.1)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:.95rem;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid rgba(29,54,80,.1)}
+thead th{background:var(--aqua-soft);color:var(--ink);font-family:"League Spartan",sans-serif;font-weight:600}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody th{font-weight:700;color:var(--ink)}
+footer.site{background:#162A3F;color:#B9CAD8;padding:32px 0;font-size:.92rem}
+footer.site .in{max-width:1180px;margin:0 auto;padding:0 var(--gutter);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer.site a{color:#B9CAD8;text-decoration:none}
+footer.site a:hover,footer.site a[aria-current="page"]{color:var(--aqua)}
+footer.site nav{display:flex;flex-wrap:wrap;gap:16px}
