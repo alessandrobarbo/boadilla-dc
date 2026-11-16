@@ -63,7 +63,7 @@ nav.main a:hover{border-color:var(--aqua)}
 .hero{padding:clamp(32px,6vw,72px) 0 clamp(48px,7vw,96px);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
 .hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem);font-weight:700;line-height:.95}
-.hero h1 .sub{display:block;font-weight:400;color:var(--steel);font-size:.52em;letter-spacing:-.01em;margin-top:.35em;line-height:1.1}
+.hero h1 .sub{display:block;font-weight:400;color:#456E8C;font-size:.52em;letter-spacing:-.01em;margin-top:.35em;line-height:1.1}
 .hero .lead{margin-top:26px;max-width:34em;font-size:1.15rem;color:var(--muted)}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hero .where{display:flex;gap:10px;align-items:flex-start;margin-top:34px;color:var(--muted);font-size:.95rem;max-width:30em}
@@ -79,7 +79,6 @@ nav.main a:hover{border-color:var(--aqua)}
 @media (prefers-reduced-motion:no-preference){
   .hero h1 .sub,.hero .lead,.hero .actions,.hero .where{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
   .hero h1 .sub{animation-delay:.38s}.hero .lead{animation-delay:.48s}.hero .actions{animation-delay:.58s}.hero .where{animation-delay:.68s}
-  .hero .arch{animation:archin 1.1s cubic-bezier(.2,.7,.2,1) both .1s}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
   @keyframes archin{from{clip-path:inset(100% 0 0 0 round 999px 999px 24px 24px)}to{clip-path:inset(0 0 0 0 round 999px 999px 24px 24px)}}
 }
@@ -207,7 +206,7 @@ footer.site{background:#162A3F;color:#B9CAD8;padding:56px 0 28px;font-size:.95re
 .f-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
 .f-logo{background:#fff;border-radius:18px;padding:10px 14px;display:inline-block}
 .f-logo img{height:58px;width:auto}
-footer.site h4{color:#fff;font-size:1.05rem;font-weight:600;margin-bottom:12px}
+footer.site .f-h{color:#fff;font-size:1.05rem;font-weight:600;margin-bottom:12px}
 footer.site ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
 footer.site a{text-decoration:none}
 footer.site a:hover{color:var(--aqua)}
@@ -350,8 +349,10 @@ nav.main a.active{color:#2f5f86}
 
 /* Opiniones: carrusel con scroll-snap */
 .rev-car-wrap{position:relative}
-.rev-car{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:4px 2px 8px;align-items:stretch}
+.rev-car{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:4px 2px 8px;align-items:stretch}
 .rev-car::-webkit-scrollbar{display:none}
+/* El ajuste (snap) se activa tras la carga: aplicado desde el inicio, el navegador lo trata como un desplazamiento y corta la medición de carga (LCP) */
+.rev-car.snap{scroll-snap-type:x mandatory}
 .rev-car > .rev{scroll-snap-align:start;margin:0;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .rev-car > .rev:hover{transform:translateY(-4px);box-shadow:0 20px 36px -26px rgba(29,54,80,.55)}
 .rev-ctrls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
@@ -460,7 +461,7 @@ nav.main a.active{color:#2f5f86}
     </nav>
     <div class="bar-cta">
       <a class="bar-tel" href="tel:+34911215826">911 215 826</a>
-      <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener" data-wa><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Pedir cita</span></a>
+      <a class="btn btn-wa" href="https://wa.me/34640918399?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Cl%C3%ADnica%20Dental%20Boadilla%20DC." target="_blank" rel="noopener" data-wa aria-label="Pedir cita por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Pedir cita</span></a>
       <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="m-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
   </div>
@@ -489,7 +490,7 @@ nav.main a.active{color:#2f5f86}
       </div>
       <figure class="hero-figure" style="margin:0">
         <div class="arch">
-          <img src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-scaled.jpg" alt="Equipo de la Clínica Dental Boadilla DC en la clínica" fetchpriority="high">
+          <img src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-1024x768.jpg" srcset="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-768x576.jpg 768w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-1024x768.jpg 1024w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0372-1536x1152.jpg 1536w" sizes="(max-width:980px) 150vw, 60vw" width="1024" height="768" alt="Equipo de la Clínica Dental Boadilla DC en la clínica" fetchpriority="high">
         </div>
         <figcaption><strong>“Siempre te atienden las mismas personas”</strong>Opinión de una paciente en Google</figcaption>
       </figure>
@@ -522,7 +523,7 @@ nav.main a.active{color:#2f5f86}
       </div>
 
       <div class="stage-panel" role="tabpanel" id="p-ninos" aria-labelledby="t-ninos">
-        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-scaled.jpg" alt="Doctora mostrando un aparato de ortodoncia a una niña"></div>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-1024x768.jpg" srcset="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-768x576.jpg 768w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-1024x768.jpg 1024w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0398-2-1536x1152.jpg 1536w" sizes="(max-width:980px) 120vw, 45vw" alt="Doctora mostrando un aparato de ortodoncia a una niña"></div>
         <div>
           <h3>Una sonrisa sana desde el principio</h3>
           <p>Acompañamos a bebés y niños en cada etapa de su desarrollo, con revisiones infantiles, tratamientos preventivos y ortodoncia desde edades tempranas.</p>
@@ -534,7 +535,7 @@ nav.main a.active{color:#2f5f86}
       </div>
 
       <div class="stage-panel" role="tabpanel" id="p-adol" aria-labelledby="t-adol" hidden>
-        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-scaled.jpg" alt="Paciente joven durante una revisión en Boadilla DC"></div>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-1024x768.jpg" srcset="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-768x576.jpg 768w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-1024x768.jpg 1024w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0015-1536x1152.jpg 1536w" sizes="(max-width:980px) 120vw, 45vw" alt="Paciente joven durante una revisión en Boadilla DC"></div>
         <div>
           <h3>Ortodoncia con todas las técnicas</h3>
           <p>Prevenimos, corregimos y cuidamos la mordida con tratamientos modernos y cómodos, pensados para el día a día de los adolescentes.</p>
@@ -546,7 +547,7 @@ nav.main a.active{color:#2f5f86}
       </div>
 
       <div class="stage-panel" role="tabpanel" id="p-adul" aria-labelledby="t-adul" hidden>
-        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-scaled.jpg" alt="Modelo dental con ortodoncia en manos de la doctora"></div>
+        <div class="arch"><img loading="lazy" src="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-1024x768.jpg" srcset="https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-768x576.jpg 768w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-1024x768.jpg 1024w, https://boadilladc.com/wp-content/uploads/2025/10/GARPRESS-0537-1536x1152.jpg 1536w" sizes="(max-width:980px) 120vw, 45vw" alt="Modelo dental con ortodoncia en manos de la doctora"></div>
         <div>
           <h3>Odontología avanzada y conservadora</h3>
           <p>Materiales de alta calidad y tecnología de última generación para lograr resultados duraderos y naturales.</p>
@@ -640,24 +641,24 @@ nav.main a.active{color:#2f5f86}
         <div>
           <h2 id="h-rev" class="sec-head" style="margin:0 0 28px;font-size:clamp(2rem,4.4vw,3.3rem);font-weight:700">Lo que dicen nuestros pacientes</h2>
           <blockquote class="rev-feature">“Aquí siempre te atienden las mismas personas y conocen tu caso al detalle, lo que da muchísima seguridad y paz.”
-            <footer><span class="stars" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Laura Córdoba</footer>
+            <footer><span class="stars" role="img" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Laura Córdoba</footer>
           </blockquote>
         </div>
         <div>
-          <p class="g-score"><b data-count="5.0">5,0</b><span><span class="stars" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="g-note"><svg aria-hidden="true"><use href="#i-google"/></svg>Valoración en Google</span></span></p>
+          <p class="g-score"><b data-count="5.0">5,0</b><span><span class="stars" role="img" aria-label="5 de 5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="g-note"><svg aria-hidden="true"><use href="#i-google"/></svg>Valoración en Google</span></span></p>
           <a class="btn btn-line" href="https://g.page/r/Ca1rQI64ILdUEBM/review" target="_blank" rel="noopener">Déjanos tu opinión</a>
         </div>
       </div>
       <div class="rev-car-wrap" data-carousel-root data-autoplay="6000">
       <div class="rev-car" data-carousel aria-label="Opiniones de pacientes" role="region">
-        <figure class="rev"><p>Esta clínica ha sido todo un descubrimiento. Son súper atentas y delicadas; en todo momento te preguntan si estás bien. Llegué con una muela hecha polvo y pensaba extraerla, pero han hecho todo por salvar mi pieza dental. ¡Son las mejores! 10/10</p><footer><b>Natalia Toro Marín</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Muy amables y confiables. Enfocados en la salud más que en el negocio. Muy profesionales.</p><footer><b>José María Alcázar</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Pilar y Betina son dos profesionales estupendas y, además, cariñosas y que se preocupan porque realmente se haga lo mejor para lo que necesitas. A mí siempre me han dado facilidades dadas mis restricciones de horario.</p><footer><b>Leire Nuere Salgado</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Llevo varios tratamientos en este centro, trato de 10 y siempre están pendientes de mi evolución.</p><footer><b>Alfonso Gómez</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Trato increíble. Pilar muy buena profesional pero mejor persona. Hace que el dentista sea apetecible.</p><footer><b>Daniel Tordesillas López</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Un trato muy profesional. Muy atentos durante el tratamiento y previamente a la visita. 100% recomendable. ¡Volveré seguro!</p><footer><b>Rubén Díaz Martín</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>Fui a hacerme una limpieza y el trato excepcional, muchísimas gracias a Laura y Pilar.</p><footer><b>Laura Molina</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
-        <figure class="rev"><p>¡Laura es la mejor! Muy detallista.</p><footer><b>David Elvira Maldonado</b><span class="stars" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Esta clínica ha sido todo un descubrimiento. Son súper atentas y delicadas; en todo momento te preguntan si estás bien. Llegué con una muela hecha polvo y pensaba extraerla, pero han hecho todo por salvar mi pieza dental. ¡Son las mejores! 10/10</p><footer><b>Natalia Toro Marín</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Muy amables y confiables. Enfocados en la salud más que en el negocio. Muy profesionales.</p><footer><b>José María Alcázar</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Pilar y Betina son dos profesionales estupendas y, además, cariñosas y que se preocupan porque realmente se haga lo mejor para lo que necesitas. A mí siempre me han dado facilidades dadas mis restricciones de horario.</p><footer><b>Leire Nuere Salgado</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Llevo varios tratamientos en este centro, trato de 10 y siempre están pendientes de mi evolución.</p><footer><b>Alfonso Gómez</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Trato increíble. Pilar muy buena profesional pero mejor persona. Hace que el dentista sea apetecible.</p><footer><b>Daniel Tordesillas López</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Un trato muy profesional. Muy atentos durante el tratamiento y previamente a la visita. 100% recomendable. ¡Volveré seguro!</p><footer><b>Rubén Díaz Martín</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>Fui a hacerme una limpieza y el trato excepcional, muchísimas gracias a Laura y Pilar.</p><footer><b>Laura Molina</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
+        <figure class="rev"><p>¡Laura es la mejor! Muy detallista.</p><footer><b>David Elvira Maldonado</b><span class="stars" role="img" aria-label="5 estrellas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></footer></figure>
       </div>
       <div class="rev-ctrls">
         <div class="left">
@@ -730,7 +731,7 @@ nav.main a.active{color:#2f5f86}
         <p style="margin-top:16px;max-width:26em">Clínica dental familiar en Boadilla del Monte. Especialistas en ortodoncia y odontopediatría.</p>
       </div>
       <div>
-        <h4>Tratamientos</h4>
+        <h2 class="f-h">Tratamientos</h2>
         <ul>
           <li><a href="https://boadilladc.com/ortodoncia-en-boadilla-del-monte/">Ortodoncia</a></li>
           <li><a href="https://boadilladc.com/odontopediatria-en-boadilla-del-monte/">Odontopediatría</a></li>
@@ -743,7 +744,7 @@ nav.main a.active{color:#2f5f86}
         </ul>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h2 class="f-h">Contacto</h2>
         <ul>
           <li><a href="tel:+34911215826">911 215 826</a></li>
           <li><a href="https://wa.me/34640918399" target="_blank" rel="noopener">640 918 399 (WhatsApp)</a></li>
@@ -870,6 +871,8 @@ document.documentElement.classList.add('js');
     ['mouseleave','focusout'].forEach(t=>wrap.addEventListener(t,()=>paused=false));
     car.addEventListener('touchstart',restart,{passive:true});
     car.tabIndex=0;addEventListener('resize',build);build();restart();
+    const snapOn=()=>car.classList.add('snap');
+    ['pointerdown','touchstart','keydown','wheel'].forEach(t=>car.addEventListener(t,snapOn,{once:true,passive:true}));
   });
 })();
 
